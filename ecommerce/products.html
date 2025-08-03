@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page - eCommerce</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
+       header {
+        background: #333;
+        color: white;
+        padding: 0.8rem;
+        font-size: 14px;
+      }
+     header nav {
+        text-align: right;
+        font-size: 41px;
+        font-weight: 700;
+        padding-right: 20px;
+        margin-top: -82px;
+        height: 73px;
+      }
+      header nav a {
+        color: white;
+        margin: 0 8px;
+        text-decoration: none;
+        font-size: 21px;
+      }
+    head, footer{ background: #333; color: white; text-align: center; padding: 1rem; }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product-image { flex: 1; padding: 10px; text-align: center; }
+    .product-image img { max-width: 100%; border-radius: 6px; }
+    .product-details { flex: 1; padding: 10px; }
+    .product-details h1 { margin-bottom: 10px; }
+    .price { font-size: 22px; color: #007bff; margin-bottom: 10px; }
+    .description { font-size: 16px; margin-bottom: 20px; }
+    .buy-btn { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; }
+    .popup {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center;
+    }
+    .popup-content {
+      background: white; padding: 20px; border-radius: 8px; width: 300px; text-align: center;
+    }
+    .popup-content img { width: 100%; border-radius: 6px; }
+    .close-btn { background: red; color: white; border: none; padding: 8px 12px; cursor: pointer; margin-top: 10px; }
+  </style>
+</head>
+<body>
+ <header>
+      <div class="pure-g">
+        <div class="pure-u-1-3">
+          <h2 style="font-size: 26px; font-weight: 800">Logo</h2>
+        </div>
+        <div class="pure-u-2-3" style="text-align: right">
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+<head>
+  <h1>eCommerce Store</h1>
+</head>
+
+<div class="product-container">
+  <div class="product-image">
+    <img src="shoes.jfif" alt="Shoes" />
+  </div>
+  <div class="product-details">
+    <h1 id="pName">Running Shoes</h1>
+    <p class="price" id="pPrice">₹1,499</p>
+    <p class="description" id="pDesc">Lightweight sneakers designed for comfort and style. Perfect for daily wear and running.</p>
+    <button class="buy-btn" onclick="showPopup()">Buy Now</button>
+  </div>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2 id="popupName"></h2>
+    <img id="popupImg" />
+    <p id="popupPrice"></p>
+    <p id="popupDesc"></p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 eCommerce Website. All rights reserved.</p>
+</footer>
+
+<script>
+function showPopup() {
+  const name = document.getElementById("pName").innerText;
+  const price = document.getElementById("pPrice").innerText;
+  const desc = document.getElementById("pDesc").innerText;
+  const imgSrc = document.querySelector(".product-image img").src;
+
+  document.getElementById("popupName").innerText = name;
+  document.getElementById("popupPrice").innerText = price;
+  document.getElementById("popupDesc").innerText = desc;
+  document.getElementById("popupImg").src = imgSrc;
+
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
